@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "CATALOG" )
-public class Catalog {
+public class FileCatalog {
 	
 	private long id;
 	private String guid;
