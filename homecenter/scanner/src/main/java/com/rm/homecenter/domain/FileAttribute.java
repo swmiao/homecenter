@@ -1,5 +1,6 @@
 package com.rm.homecenter.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,8 +17,7 @@ public class FileAttribute {
 	private String fileExtention;
 	private String fileSize;
 	private String parentName;
-	
-	
+
 	@Id
 	public String getId() {
 		return id;
@@ -25,30 +25,40 @@ public class FileAttribute {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	@Column
 	public String getGuid() {
 		return guid;
 	}
 	public void setGuid(String guid) {
 		this.guid = guid;
 	}
+
+	@Column
 	public String getFileName() {
 		return fileName;
 	}
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
+	@Column
 	public String getFilePath() {
 		return filePath;
 	}
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
+
+	@Column
 	public String getFileExtention() {
 		return fileExtention;
 	}
 	public void setFileExtention(String fileExtention) {
 		this.fileExtention = fileExtention;
 	}
+
+	@Column
 	public String getFileSize() {
 		return fileSize;
 	}
@@ -76,6 +86,8 @@ public class FileAttribute {
 		}
 		
 	}
+
+	@Column
 	public String getParentName() {
 		return parentName;
 	}

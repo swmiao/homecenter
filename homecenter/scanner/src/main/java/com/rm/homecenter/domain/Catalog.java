@@ -1,5 +1,6 @@
 package com.rm.homecenter.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,18 +21,24 @@ public class Catalog {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	@Column
 	public String getGuid() {
 		return guid;
 	}
 	public void setGuid(String guid) {
 		this.guid = guid;
 	}
+
+	@Column
 	public String getCatalogName() {
 		return catalogName;
 	}
 	public void setCatalogName(String catalogName) {
 		this.catalogName = catalogName;
 	}
+
+	@Column
 	public String getFileExtention() {
 		return fileExtention;
 	}

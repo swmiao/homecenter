@@ -1,15 +1,19 @@
-package com.rm.homecenter.main;
+package com.rm.homecenter;
 
 import com.rm.homecenter.domain.FileAttribute;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
 import java.util.UUID;
 
+@SpringBootApplication
 public class Mainscaner {
 	
 	public static String path = "F:/Movies";
 	
 	public static void main(String[] args) {
+		SpringApplication.run(Mainscaner.class, args);
 		File rootFile = new File(path);
 		processFile(rootFile);
 
@@ -34,6 +38,7 @@ public class Mainscaner {
 				file.delete();
 			}
 			fAttribute.setParentName(file.getParentFile().getName());
+
 			System.out.println(fAttribute.getGuid());
 			System.out.println(fAttribute.getFileName());
 			System.out.println(fAttribute.getFilePath());
