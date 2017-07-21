@@ -4,12 +4,14 @@ import com.rm.homecenter.dao.FileCatalogDao;
 import com.rm.homecenter.domain.FileCatalog;
 import com.rm.homecenter.service.FileCatalogService;
 import org.springframework.data.repository.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by mswzs on 2017/7/20.
  */
+@Service
 public class FileCatalogServiceImpl implements FileCatalogService {
     private FileCatalogDao fileCatalogDao;
 
