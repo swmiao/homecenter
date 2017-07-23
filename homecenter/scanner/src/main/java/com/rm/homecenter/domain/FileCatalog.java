@@ -1,9 +1,6 @@
 package com.rm.homecenter.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table( name = "CATALOG" )
@@ -13,8 +10,16 @@ public class FileCatalog {
 	private String guid;
 	private String catalogName;
 	private String fileExtention;
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE,generator="customer_gen")
+	@TableGenerator(name = "customer_gen",
+			table="tb_id_generator",
+			pkColumnName="gen_name",
+			valueColumnName="gen_value",
+			pkColumnValue="FILE_Catalog_ID",
+			allocationSize=1
+	)
 	public long getId() {
 		return id;
 	}

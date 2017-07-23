@@ -18,7 +18,5 @@ public class Mainscaner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Mainscaner.class, args);
-
-
 	}
 }

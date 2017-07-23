@@ -1,16 +1,18 @@
 package com.rm.homecenter.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+
+import javax.persistence.*;
 import java.text.DecimalFormat;
 
 @Entity
 @Table(name="FILEATTRIBUTE")
+@NamedQueries({
+		@NamedQuery(name="findByfileName",query="SELECT f FROM FileAttribute f where f.fileName= ?1")
+	})
 public class FileAttribute {
 	
-	private String id;
+	private long id;
 	private String guid;
 	private String fileName;
 	private String filePath;
@@ -19,10 +21,18 @@ public class FileAttribute {
 	private String parentName;
 
 	@Id
-	public String getId() {
+	@GeneratedValue(strategy = GenerationType.TABLE,generator="customer_gen")
+	@TableGenerator(name = "customer_gen",
+			table="tb_id_generator",
+			pkColumnName="gen_name",
+			valueColumnName="gen_value",
+			pkColumnValue="FILE_ATTR_ID",
+			allocationSize=1
+	)
+	public long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -75,6 +85,7 @@ public class FileAttribute {
 				sizeTemp = sizeTemp / 1024;
 				if(sizeTemp / 1024 > 1) {
 					sizeTemp = sizeTemp / 1024;
+					setFileSize(df.format(sizeTemp) + " G");
 				}else{
 					setFileSize(df.format(sizeTemp) + " M");
 				}

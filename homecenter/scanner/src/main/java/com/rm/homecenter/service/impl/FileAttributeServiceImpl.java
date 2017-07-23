@@ -3,6 +3,7 @@ package com.rm.homecenter.service.impl;
 import com.rm.homecenter.dao.FileAttributeDao;
 import com.rm.homecenter.domain.FileAttribute;
 import com.rm.homecenter.service.FileAttributeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class FileAttributeServiceImpl implements FileAttributeService {
 
+    @Autowired
     private FileAttributeDao fileAttributeDao;
 
     public FileAttribute save(FileAttribute fileAttribute){
@@ -25,6 +27,11 @@ public class FileAttributeServiceImpl implements FileAttributeService {
 
     public List<FileAttribute> findByFileName(String fileName){
         return fileAttributeDao.findByFileName(fileName);
+    }
+
+    @Override
+    public List<FileAttribute> findAll() {
+        return fileAttributeDao.findAll();
     }
 
     public FileAttributeDao getFileAttributeDao() {

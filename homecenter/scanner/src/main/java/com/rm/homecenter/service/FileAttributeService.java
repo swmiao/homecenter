@@ -16,4 +16,6 @@ public interface FileAttributeService {
 
     public List<FileAttribute> findByFileName(String fileName);
 
+    public List<FileAttribute> findAll();
+
 }
