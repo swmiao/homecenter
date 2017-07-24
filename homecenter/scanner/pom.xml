@@ -37,6 +37,7 @@
 
     <build>
         <plugins>
+                <!-- support run in maven command:  mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
